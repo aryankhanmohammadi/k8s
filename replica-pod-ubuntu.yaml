@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ubuntu-deployment
+  labels:
+    apps: front
+spec:
+  template:
+    metadata:
+      name: ubuntu-pod
+      labels:
+        app: ubuntu
+    spec:
+      containers:
+        - name: ubuntu-container
+          image: ubuntu:latest
+          command:
+            - sleep
+            - infinity
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ubuntu
