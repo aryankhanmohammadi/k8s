@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-nginx
+  labels: 
+    app: nginx
+    type: front-end
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:1.18
+      ports:
+        - name: http      
+          containerPort: 8080
+          hostPort: 8090
